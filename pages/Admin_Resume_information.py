@@ -9,16 +9,31 @@ from langchain_groq import ChatGroq
 import streamlit as st
 from urllib.parse import quote
 import pandas as pd
+import yaml
+import streamlit as st
+from yaml.loader import SafeLoader
+import streamlit_authenticator as stauth
+from streamlit_authenticator.utilities import (CredentialsError,
+                                               ForgotError,
+                                               Hasher,
+                                               LoginError,
+                                               RegisterError,
+                                               ResetError,
+                                               UpdateError)
+import streamlit as st
+# st.set_page_config(page_title="AI Powered Admin Chatbot", page_icon="mcmaster.png")
+# st.image("mcmaster.png",width=220)
 
-hide_streamlit_style = """
-    <style>
-    #GithubIcon {visibility: hidden;}
-    #MainMenu {visibility: hidden;}
-    footer {visibility: hidden;}
-    .stApp {overflow: hidden;}
-    header {visibility: hidden;}
-    </style>
-"""
+with open('config.yaml', 'r', encoding='utf-8') as file:
+    config = yaml.load(file, Loader=SafeLoader)
+
+authenticator = stauth.Authenticate(
+    config['credentials'],
+    config['cookie']['name'],
+    config['cookie']['key'],
+    config['cookie']['expiry_days'],
+    # config['pre-authorized']
+)
 
 def init_database(user: str, password: str, host: str, port: str, database: str) -> SQLDatabase:
     # URL encode the password
@@ -93,125 +108,139 @@ def get_response(user_query: str, db: SQLDatabase, chat_history: list):
 
 # Load environment variables
 load_dotenv()
+try:
+    authenticator.login()
+except LoginError as e:
+    st.error(e)
 
-# Set up Streamlit page
-st.set_page_config(page_title="AI Powered Admin Chatbot", page_icon="mcmaster.png")
-st.image("mcmaster.png",width=220)
-# Automatically connect to the database
-st.title("AI Powered :red[McMaster Chatbot]")
+if st.session_state["authentication_status"]:
+    st.write(f'Welcome *{st.session_state["name"]}*')
+    # Set up Streamlit page
+    
+    # Automatically connect to the database
+    st.title("AI Powered :red[McMaster Chatbot]")
 
 
-# Database connection parameters (set your own values here)
-# db_params = {
-#     "Host": "localhost",
-#     "Port": "3306",
-#     "User": "root",
-#     "Password": "Meet@2001",
-#     "Database": "testdb"
-# }
-db_params = {
-    "Host": "sql3.freesqldatabase.com",
-    "Port": "3306",
-    "User": "sql3747402",
-    "Password": "4JBhsn93F1",
-    "Database": "sql3747402"
-}
+    # Database connection parameters (set your own values here)
+    # db_params = {
+    #     "Host": "localhost",
+    #     "Port": "3306",
+    #     "User": "root",
+    #     "Password": "Meet@2001",
+    #     "Database": "testdb"
+    # }
+    db_params = {
+        "Host": "sql3.freesqldatabase.com",
+        "Port": "3306",
+        "User": "sql3747402",
+        "Password": "4JBhsn93F1",
+        "Database": "sql3747402"
+    }
 
-# Initialize database connection
-# db = init_database(
-#     db_params["User"],
-#     db_params["Password"],
-#     db_params["Host"],
-#     db_params["Port"],
-#     db_params["Database"]
-# )
-# st.session_state.db = db
+    # Initialize database connection
+    # db = init_database(
+    #     db_params["User"],
+    #     db_params["Password"],
+    #     db_params["Host"],
+    #     db_params["Port"],
+    #     db_params["Database"]
+    # )
+    # st.session_state.db = db
 
-db = init_database(
-    db_params["User"],
-    db_params["Password"],
-    db_params["Host"],
-    db_params["Port"],
-    db_params["Database"]
-)
-st.session_state.db = db
+    db = init_database(
+        db_params["User"],
+        db_params["Password"],
+        db_params["Host"],
+        db_params["Port"],
+        db_params["Database"]
+    )
+    st.session_state.db = db
 
-# Initialize chat history if not already present
-if "chat_history" not in st.session_state:
-    st.session_state.chat_history = [
-        AIMessage(content="Hello! I'm a AI Powered McMaster chatbot, I will provide information based on Report."),
+    # Initialize chat history if not already present
+    if "chat_history" not in st.session_state:
+        st.session_state.chat_history = [
+            AIMessage(content="Hello! I'm a AI Powered McMaster chatbot, I will provide information based on Report."),
+        ]
+
+    # Display chat history
+    for message in st.session_state.chat_history:
+        if isinstance(message, AIMessage):
+            with st.chat_message("AI"):
+                st.markdown(message.content)
+        elif isinstance(message, HumanMessage):
+            with st.chat_message("Human"):
+                st.markdown(message.content)
+
+    # Example prompts and their help texts
+    example_prompts = [
+        "Give me Details about all students",
+        "who Has CGPA more than 3.8",
+        "Give me all students details, just Skills",
+        # "what is MTD sales for 1707 as of 28 june 2024 ?",
+        # "The famous 'Black Lotus' card",
+        # "Wizard card with Vigilance ability",
     ]
 
-# Display chat history
-for message in st.session_state.chat_history:
-    if isinstance(message, AIMessage):
-        with st.chat_message("AI"):
-            st.markdown(message.content)
-    elif isinstance(message, HumanMessage):
+    example_prompts_help = [
+        "Give me Details about all students",
+        "who Has CGPA more than 3.8",
+        "Give me all students details, just Skills",
+        # "Specific card effect to another mana color",
+        # "Search for card names",
+        # "Search for card types with specific abilities",
+    ]
+
+    # Display buttons for example prompts
+    button_cols = st.columns(3)
+    button_cols_2 = st.columns(3)
+
+    button_pressed = ""
+
+    if button_cols[0].button(example_prompts[0], help=example_prompts_help[0]):
+        button_pressed = example_prompts[0]
+    elif button_cols[1].button(example_prompts[1], help=example_prompts_help[1]):
+        button_pressed = example_prompts[1]
+    elif button_cols[2].button(example_prompts[2], help=example_prompts_help[2]):
+        button_pressed = example_prompts[2]
+
+    # elif button_cols_2[0].button(example_prompts[3], help=example_prompts_help[3]):
+    #     button_pressed = example_prompts[3]
+    # elif button_cols_2[1].button(example_prompts[4], help=example_prompts_help[4]):
+    #     button_pressed = example_prompts[4]
+    # elif button_cols_2[2].button(example_prompts[5], help=example_prompts_help[5]):
+    #     button_pressed = example_prompts[5]
+
+
+
+
+    # Get user input
+    user_query = st.chat_input("Type a message...")
+
+    if button_pressed:
+        user_query = button_pressed
+
+    if user_query is not None and user_query.strip() != "":
+        st.session_state.chat_history.append(HumanMessage(content=user_query))
+
         with st.chat_message("Human"):
-            st.markdown(message.content)
+            st.markdown(user_query)
 
-# Example prompts and their help texts
-example_prompts = [
-    "Give me Details about all students",
-    "who Has CGPA more than 3.8",
-    "Give me all students details, just Skills",
-    # "what is MTD sales for 1707 as of 28 june 2024 ?",
-    # "The famous 'Black Lotus' card",
-    # "Wizard card with Vigilance ability",
-]
+        with st.chat_message("AI"):
+            response = get_response(user_query, st.session_state.db, st.session_state.chat_history)
 
-example_prompts_help = [
-    "Give me Details about all students",
-    "who Has CGPA more than 3.8",
-    "Give me all students details, just Skills",
-    # "Specific card effect to another mana color",
-    # "Search for card names",
-    # "Search for card types with specific abilities",
-]
+            # Display the response as a table if it is a DataFrame, otherwise as text
+            if isinstance(response, pd.DataFrame):
+                st.dataframe(response)
+            else:
+                st.markdown(response)
 
-# Display buttons for example prompts
-button_cols = st.columns(3)
-button_cols_2 = st.columns(3)
+        st.session_state.chat_history.append(AIMessage(content=response))
+    authenticator.logout()
 
-button_pressed = ""
+elif st.session_state["authentication_status"] is False:
+    st.error('Username/password is incorrect')
+elif st.session_state["authentication_status"] is None:
+    st.warning('Please enter your username and password')
 
-if button_cols[0].button(example_prompts[0], help=example_prompts_help[0]):
-    button_pressed = example_prompts[0]
-elif button_cols[1].button(example_prompts[1], help=example_prompts_help[1]):
-    button_pressed = example_prompts[1]
-elif button_cols[2].button(example_prompts[2], help=example_prompts_help[2]):
-    button_pressed = example_prompts[2]
-
-# elif button_cols_2[0].button(example_prompts[3], help=example_prompts_help[3]):
-#     button_pressed = example_prompts[3]
-# elif button_cols_2[1].button(example_prompts[4], help=example_prompts_help[4]):
-#     button_pressed = example_prompts[4]
-# elif button_cols_2[2].button(example_prompts[5], help=example_prompts_help[5]):
-#     button_pressed = example_prompts[5]
-
-
-
-
-# Get user input
-user_query = st.chat_input("Type a message...")
-
-if button_pressed:
-    user_query = button_pressed
-
-if user_query is not None and user_query.strip() != "":
-    st.session_state.chat_history.append(HumanMessage(content=user_query))
-
-    with st.chat_message("Human"):
-        st.markdown(user_query)
-
-    with st.chat_message("AI"):
-        response = get_response(user_query, st.session_state.db, st.session_state.chat_history)
-
-        # Display the response as a table if it is a DataFrame, otherwise as text
-        if isinstance(response, pd.DataFrame):
-            st.dataframe(response)
-        else:
-            st.markdown(response)
-
-    st.session_state.chat_history.append(AIMessage(content=response))
+with open('config.yaml', 'w', encoding='utf-8') as file:
+    yaml.dump(config, file, default_flow_style=False)
