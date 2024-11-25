@@ -13,3 +13,4 @@ langchain
 PyPDF2
 ollama
 faiss-cpu
+streamlit_authenticator
