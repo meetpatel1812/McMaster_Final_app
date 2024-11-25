@@ -2,3 +2,4 @@ PyGithub
 streamlit
 openpyxl
 pyautogui
+python-dotenv
