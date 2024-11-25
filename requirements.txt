@@ -5,3 +5,4 @@ pyautogui
 python-dotenv
 langchain
 langchain_community
+langchain_groq
