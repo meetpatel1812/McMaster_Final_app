@@ -4,11 +4,11 @@ import pandas as pd
 from openpyxl.utils.dataframe import dataframe_to_rows
 from openpyxl.styles import Font, PatternFill
 from datetime import datetime, timedelta
-import os
+# import os
 import streamlit as st
 from pdf_data import pdfs
 
-import pyautogui
+# import pyautogui
 
 
 st.set_page_config(page_title="PDF Library", layout="wide")
