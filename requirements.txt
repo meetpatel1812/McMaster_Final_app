@@ -4,12 +4,9 @@ openpyxl
 pyautogui
 python-dotenv
 langchain
-langchain_community
-langchain_groq
-MySQL
-python-dotenv
+mysql-connector-python
 langchain-core
 langchain-community
 langchain-groq
-streamlit
 pandas
+mysqlclient
