@@ -1,0 +1,118 @@
+{
+    "required_courses": {
+      "all_streams": "SEP 769 / Cyber Physical Systems"
+    },
+    "professional_development_courses": [
+      "SEP 6EP3 / Entrepreneurial Thinking & Innovation",
+      "SEP 6MK3 / Fundamentals of Marketing",
+      "SEP 6TC3 / Technical Communications",
+      "SEP 6X03 / Livable Cities, the Built and Natural Environment",
+      "SEP 705 / Green Engineering, Sustainability and Public Policy",
+      "SEP 709 / Emerging Issues, Technology and Public Policy",
+      "SEP 710 / International Governance and Environmental Sustainability",
+      "SEP 725 / Practical Project Management for Today’s Business Environment",
+      "SEP 760 / Design Thinking",
+      "SEP 770 / Total Sustainability Management",
+      "SEP 773 / Leadership for Innovation"
+    ],
+    "streams": {
+      "Automotive": {
+        "core_courses": [
+          "SEP 6AE3 / Internal Combustion Engines",
+          "SEP 6DV3 / Vehicle Dynamics",
+          "SEP 711 / Electric Powertrain Components Design",
+          "SEP 716 / Automotive Safety Design",
+          "SEP 722 / Electric Drive Vehicles",
+          "SEP 724 / Intelligent Transportation Systems",
+          "SEP 734 / Issues in Vehicle Productions",
+          "SEP 740 / Deep Learning",
+          "SEP 742 / Visual Perception for Autonomous Vehicles",
+          "SEP 775 / Introduction to Computational Natural Language Processing",
+          "SEP 798 / Management and Control of Electric Vehicle Batteries"
+        ],
+        "technical_electives": [
+          "MECH ENG 6Z03 / CAD/CAM/CAE",
+          "SEP 780 / Advanced Robotics and Automation",
+          "SEP 783 / Sensors and Actuators",
+          "SEP 791 / Augmented Reality, Virtual Reality and Mixed Reality"
+        ]
+      },
+      "Automation and Smart Systems": {
+        "core_courses": [
+          "SEP 713 / Cloud Computing",
+          "SEP 728 / Internet of Things (IoT) and industrial Internet of Things (IoT) Systems",
+          "SEP 752 / Systems Modeling and Optimization",
+          "SEP 767 / Multivariate Statistical Methods for Big Data Analysis and Process Improvement",
+          "SEP 780 / Advanced Robotics and Automation",
+          "SEP 785 / Machine Learning",
+          "SEP 791 / Augmented Reality, Virtual Reality and Mixed Reality",
+          "CAS 771 / Introduction to Big Data Systems and Applications",
+          "SEP 740 / Deep Learning",
+          "SEP 775 / Introduction to Computational Natural Language Processing",
+          "SEP 742 / Visual Perception for Autonomous Vehicles",
+          "SEP 758 / Software Design Tools and Methods",
+          "SEP 759 / Prototyping Web and Mobile Applications"
+        ],
+        "technical_electives": [
+          "SEP 718 / Industrial Automation",
+          "SEP 723 / Industrial Components, Networks, and Interoperability",
+          "SEP 783 / Sensors and Actuators",
+          "SEP 6CS3 / Computer Security",
+          "SEP 6DA3 / Data Analytics and Big Data",
+          "SEP 6DM3 / Data Mining"
+        ]
+      },
+      "Digital Manufacturing": {
+        "core_courses": [
+          "SEP 718 / Industrial Automation",
+          "SEP 723 / Industrial Components, Networks, and Interoperability",
+          "SEP 728 / Internet of Things (IoT) and industrial Internet of Things (IoT) Systems",
+          "SEP 735 / Additive Manufacturing",
+          "SEP 740 / Deep Learning",
+          "SEP 752 / Systems Modeling and Optimization",
+          "SEP 758 / Software Design Tools and Methods",
+          "SEP 759 / Prototyping Web and Mobile Applications",
+          "SEP 780 / Advanced Robotics and Automation",
+          "SEP 783 / Sensors and Actuators",
+          "SEP 791 / Augmented Reality, Virtual Reality and Mixed Reality"
+        ],
+        "technical_electives": [
+          "SEP 6FM3 / Computer Integrated Manufacturing (CIM) and Flexible Manufacturing",
+          "SEP 742 / Visual Perception for Autonomous Vehicles",
+          "SEP 767 / Multivariate Statistical Methods for Big Data Analysis and Process Improvement",
+          "SEP 775 / Introduction to Computational Natural Language Processing",
+          "SEP 785 / Machine Learning"
+        ]
+      },
+      "Process Systems": {
+        "core_courses": [
+          "SEP 750 / Model Predictive Control Design and Implementation",
+          "SEP 751 / Process Design and Control for Operability",
+          "SEP 752 / Systems Modeling and Optimization",
+          "SEP 767 / Multivariate Statistical Methods for Big Data Analysis and Process Improvement",
+          "SEP 718 / Industrial Automation",
+          "SEP 783 / Sensors and Actuators",
+          "SEP 739 / Distributed Computing for Process Control",
+          "SEP 740 / Deep Learning"
+        ],
+        "technical_electives": [
+          "CHEM ENG 773 / Advanced Concepts of Polymer Extrusion",
+          "CHEM ENG 740 / Advanced PSE Tools and Methods",
+          "SEP 6IT3 / Internet Technologies and Databases",
+          "ECE 710 / Engineering Optimization",
+          "ECE 732 / Non-linear Control Systems",
+          "ECE 736 / 3D Image Processing and Computer Vision",
+          "ECE 744 / System-on-a-Chip (SOC) Design and Test: Part I - Methods",
+          "ECE 778 / Introduction to Nanotechnology",
+          "SFWR ENG 6HC3 / The Human Computer Interface",
+          "COMP SCI 6F03 / Distributed Computer Systems",
+          "COMP SCI 6TE3 / Continuous Optimization"
+        ]
+      }
+    },
+    "project_courses": [
+      "SEP 799 / M.Eng. Project in Systems and Technology Part 1",
+      "SEP 799 / M.Eng. Project in Systems and Technology Part 2"
+    ]
+  }
+  
