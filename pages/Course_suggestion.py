@@ -78,7 +78,15 @@
 
 import streamlit as st
 from groq import Client
-
+hide_streamlit_style = """
+    <style>
+    #GithubIcon {visibility: hidden;}
+    #MainMenu {visibility: hidden;}
+    footer {visibility: hidden;}
+    .stApp {overflow: hidden;}
+    header {visibility: hidden;}
+    </style>
+"""
 # Initialize the Groq client
 client = Client(api_key='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')
 

@@ -12,6 +12,15 @@ from pdf_data import pdfs
 
 
 st.set_page_config(page_title="PDF Library", layout="wide")
+hide_streamlit_style = """
+    <style>
+    #GithubIcon {visibility: hidden;}
+    #MainMenu {visibility: hidden;}
+    footer {visibility: hidden;}
+    .stApp {overflow: hidden;}
+    header {visibility: hidden;}
+    </style>
+"""
 
 
 

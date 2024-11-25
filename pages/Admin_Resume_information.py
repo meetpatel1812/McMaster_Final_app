@@ -10,6 +10,16 @@ import streamlit as st
 from urllib.parse import quote
 import pandas as pd
 
+hide_streamlit_style = """
+    <style>
+    #GithubIcon {visibility: hidden;}
+    #MainMenu {visibility: hidden;}
+    footer {visibility: hidden;}
+    .stApp {overflow: hidden;}
+    header {visibility: hidden;}
+    </style>
+"""
+
 def init_database(user: str, password: str, host: str, port: str, database: str) -> SQLDatabase:
     # URL encode the password
     encoded_password = quote(password)

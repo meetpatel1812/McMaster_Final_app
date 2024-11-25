@@ -11,6 +11,15 @@ from pdf_data import pdfs
 # import pyautogui
 
 st.set_page_config(page_title="PDF Library", layout="wide")
+hide_streamlit_style = """
+    <style>
+    #GithubIcon {visibility: hidden;}
+    #MainMenu {visibility: hidden;}
+    footer {visibility: hidden;}
+    .stApp {overflow: hidden;}
+    header {visibility: hidden;}
+    </style>
+"""
 
 col1, col2, col3, col4, col5 = st.columns([3, 3, 3, 4, 1])
 

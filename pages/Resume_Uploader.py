@@ -16,8 +16,10 @@ st.set_page_config(page_icon="📄", page_title="Upload your Resume for future o
 # Hide Streamlit's default style elements for a cleaner UI
 hide_streamlit_style = """
     <style>
+    #GithubIcon {visibility: hidden;}
     #MainMenu {visibility: hidden;}
     footer {visibility: hidden;}
+    .stApp {overflow: hidden;}
     header {visibility: hidden;}
     </style>
 """
