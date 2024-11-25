@@ -8,3 +8,8 @@ mysql-connector-python
 openpyxl
 sentence-transformers
 pyautogui
+groq
+langchain
+PyPDF2
+ollama
+faiss-cpu
