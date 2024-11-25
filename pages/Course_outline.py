@@ -8,7 +8,7 @@ import os
 import streamlit as st
 from pdf_data import pdfs
 
-import pyautogui
+# import pyautogui
 
 st.set_page_config(page_title="PDF Library", layout="wide")
 
