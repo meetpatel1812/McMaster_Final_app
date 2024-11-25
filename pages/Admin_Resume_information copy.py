@@ -32,7 +32,7 @@ authenticator = stauth.Authenticate(
     config['cookie']['name'],
     config['cookie']['key'],
     config['cookie']['expiry_days'],
-    config['pre-authorized']
+    # config['pre-authorized']
 )
 
 def init_database(user: str, password: str, host: str, port: str, database: str) -> SQLDatabase:
