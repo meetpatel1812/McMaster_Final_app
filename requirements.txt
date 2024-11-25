@@ -7,3 +7,4 @@ pandas
 mysql-connector-python
 openpyxl
 sentence-transformers
+pyautogui
