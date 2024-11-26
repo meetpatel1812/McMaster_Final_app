@@ -196,16 +196,5 @@ pdfs = [
         ],
         "file_path": "Course/Automotive_stream/Cross_Disciplinary/SEP 710 Winter 2024outline revised.pdf",
         "icon": "\ud83d\udcc4"
-    },
-    {
-        "name": "meet55",
-        "label": "CDW",
-        "category": "Required core courses",
-        "subcategory": "Automotive Stream",
-        "semesters": [
-            "Fall"
-        ],
-        "file_path": "Course/Required_core_courses/design.pdf",
-        "icon": ""
     }
 ]
