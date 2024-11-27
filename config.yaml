@@ -7,7 +7,7 @@ credentials:
     alavis2@mcmaster.ca:
       email: alavis2@mcmaster.ca
       failed_login_attempts: 1
-      logged_in: false
+      logged_in: true
       name: Marjan alavi
       password: $2b$12$dbtluN/LOj3oIJz7BbiLj.Oa3kgaFRvJTqQhpk5vmhC.3yLVcrduO
     meet:

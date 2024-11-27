@@ -28,11 +28,22 @@ hide_streamlit_style = """
 st.title("McMaster University")
 st.subheader("Master in System and Technology App",divider=True)
 
-# st.markdown("This process devide into 4 parts")
-# st.markdown("1. Page 1 - Process of Abandon Calls and Combined Calls filering.")
-# st.markdown("2. Page 2 - Updating Base Data - working file with Previous week Data")
-# st.markdown("3. Page 3 - Updating the Veronica & Curtis file")
-# st.markdown("4. Once process is finish Press reset button to reset everything")
+st.markdown("This Website provides various information about MEST program")
+st.markdown(
+    "1. **Course Information Chatbot** - This AI-powered chatbot enables students to inquire about various program details such as admission requirements, course structure, course information, elective subjects, mandatory courses, and more."
+)
+st.markdown(
+    "2. **Course Outline** - This page is designed specifically for students to explore detailed course availability based on their requirements. It also allows students to download course outlines in PDF format."
+)
+st.markdown(
+    "3. **Course Suggestion** - This page assists students in selecting subjects aligned with their field of study and future interests."
+)
+st.markdown(
+    "4. **Resume Uploader** - This page is tailored for prospective students interested in admission. It allows them to upload documents such as resumes, SOPs, and reference letters. The AI system extracts relevant information and stores it in the database."
+)
+st.markdown(
+    "5. **Admin Resume Information** - This page is designed for administrative use, where admins can ask various questions about students through a simple chat interface."
+)
 # if st.button("Reset"):
 #     pyautogui.hotkey("ctrl","F5")
 
