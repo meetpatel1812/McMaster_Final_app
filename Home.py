@@ -27,7 +27,7 @@ hide_streamlit_style = """
 
 st.title("McMaster University")
 st.subheader("Master in System and Technology App",divider=True)
-
+st.title("mew")
 st.markdown("This Website provides various information about MEST program")
 st.markdown(
     "1. **Course Information Chatbot** - This AI-powered chatbot enables students to inquire about various program details such as admission requirements, course structure, course information, elective subjects, mandatory courses, and more."
