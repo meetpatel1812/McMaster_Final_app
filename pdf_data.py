@@ -1,18 +1,5 @@
 pdfs = [
     {
-        "name": "SEP 769",
-        "label": "Cyber Physical Systems",
-        "category": "Required core courses",
-        "subcategory": "All stream course",
-        "semesters": [
-            "Fall",
-            "Winter",
-            "Summer"
-        ],
-        "file_path": "Course/Required_courses/SEP769 - Fall2023.pdf",
-        "icon": "\ud83d\udcc4"
-    },
-    {
         "name": "SEP 6TC3",
         "label": "Technical Communications",
         "category": "Professional Development",
